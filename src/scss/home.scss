@@ -280,6 +280,266 @@
 	}
 }
 
+.program {
+	margin-top: 65px;
+
+	&__container {}
+
+	&__title {
+		font-family: 'Comfortaa';
+		font-weight: 600;
+		@include adaptiveValue("font-size", 32, 26);
+		line-height: math.div(36, 32);
+		margin-left: 30px;
+		margin-bottom: 27px;
+
+		span {
+			color: #BE1522
+		}
+
+		@media (max-width:$mobile) {
+			margin-left: 0;
+		}
+	}
+
+	&__subtitle {
+		margin-left: 30px;
+		max-width: 550px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: math.div(20, 16);
+		@include adaptiveValue("margin-bottom", 48, 25);
+
+		@media (max-width:$mobile) {
+			margin-left: 0;
+		}
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		margin-top: -70px;
+		flex-wrap: wrap;
+
+		@media (max-width:$tablet) {
+			margin-top: 0;
+
+		}
+	}
+}
+
+.box {
+
+	&__left {
+		margin-right: 50px;
+
+		@media (max-width:$tablet) {
+			margin-bottom: 40px;
+			margin-right: 0;
+		}
+	}
+
+	&__left-item {
+		margin-left: 30px;
+		display: flex;
+		align-items: center;
+
+		@media (max-width:$mobile) {
+			margin-left: 0;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+
+		img {
+			max-width: 30px;
+			max-height: 30px;
+			margin-right: 13px;
+		}
+
+		span {
+			font-weight: 500;
+			@include adaptiveValue("font-size", 16, 14);
+			line-height: math.div(20, 16);
+		}
+	}
+
+	&__right {
+		max-width: 380px;
+		max-height: 404px;
+
+		@media (max-width:$tablet) {
+			text-align: center;
+			margin: auto;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
 
 
 //====================================================================================================
+.doctor {
+	@include adaptiveValue("margin-top", 100, 60);
+	background: #FFEBE8;
+	position: relative;
+	@include adaptiveValue("padding-top", 75, 35);
+	@include adaptiveValue("padding-bottom", 75, 35);
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 553px;
+		height: 750px;
+		top: -250px;
+		right: 0;
+		background: url(../img/doctor/doc-after.png) top center no-repeat;
+		z-index: 1;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 249px;
+		height: 552px;
+		bottom: -150px;
+		left: 0;
+		background: url(../img/doctor/dox-before.png) bottom center no-repeat;
+		z-index: 1;
+	}
+
+
+	&__title {
+		position: relative;
+		text-align: center;
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 48, 36);
+		line-height: math.div(54, 48);
+		margin-bottom: 28px;
+		z-index: 2;
+	}
+
+	&__subtitle {
+		text-align: center;
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 32, 26);
+		line-height: math.div(36, 32);
+		color: #BE1522;
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		position: relative;
+		z-index: 2;
+		flex: 0 1 48%;
+		background: #FCC2C0;
+		box-shadow: 0px 4px 20px #FCC2C0;
+		border-radius: 20px;
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		height: rem(420);
+	}
+
+	&__item-left {
+		min-width: 239px;
+		height: 304px;
+		border-radius: 20px;
+		margin-right: 20px;
+
+		img {
+			border-radius: 20px;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__item-right-name {
+		background: #FFFFFF;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		padding: 15px 20px;
+		font-weight: 500;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(20, 16);
+		color: #000000;
+		margin-bottom: 10px;
+	}
+
+	&__item-right-spec {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(20, 16);
+		color: #BE1522;
+		margin-bottom: 8px;
+	}
+
+	&__item-right-list {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__item-right-sp {}
+}
+
+.right-list-item {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+
+	img {
+		width: 22px;
+		margin-right: 13px;
+	}
+
+
+	span {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(20, 16);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 11px;
+	}
+}
+
+.right-sp {
+
+	&__item {
+		display: flex;
+		align-items: center;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		span {
+			font-weight: 500;
+			font-size: 12px;
+			line-height: math.div(15, 12);
+			color: #000000;
+
+
+		}
+
+		img {
+			margin-right: 5px;
+		}
+	}
+}
