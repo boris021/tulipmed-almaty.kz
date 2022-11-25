@@ -1,0 +1,1 @@
+# tulipmed-almaty.kz
