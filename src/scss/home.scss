@@ -587,6 +587,11 @@
 		border-radius: 20px;
 		display: flex;
 		align-items: center;
+		z-index: 2;
+
+		@media (max-width:$tablet) {
+			flex-wrap: wrap;
+		}
 
 		&::before {
 			content: '';
@@ -595,28 +600,42 @@
 			height: 100%;
 			top: 0;
 			left: 0;
-			background: url(../img/sale/sale-bg.jpg) center center no-repeat;
+			background: url(../img/sale/sale-bg.jpg) center center/cover no-repeat;
+			border-radius: 20px;
 			z-index: -1;
 		}
 	}
 
 	&__left {
 		flex: 0 1 50%;
+		margin-right: 20px;
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
 
 		&-img {
-			width: 100%;
-			height: 100%;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 
 	&__right {
 		flex: 0 1 50%;
 		padding: 40px;
+
+		@media (max-width:$tablet) {
+			flex: 1 1 100%;
+			padding: 20px;
+		}
 	}
 
 	&__right-title {
 		font-weight: 800;
-		@include adaptiveValue("font-size", 30, 26);
+		@include adaptiveValue("font-size", 30, 20);
 		line-height: math.div(37, 30);
 		text-transform: uppercase;
 		color: #FFFFFF;
@@ -625,7 +644,7 @@
 
 	&__right-subtitle {
 		font-weight: 800;
-		@include adaptiveValue("font-size", 30, 26);
+		@include adaptiveValue("font-size", 30, 20);
 		line-height: math.div(37, 30);
 		color: #FFFFFF;
 		margin-bottom: 12px;
@@ -633,7 +652,7 @@
 
 	&__right-text {
 		font-weight: 800;
-		@include adaptiveValue("font-size", 48, 40);
+		@include adaptiveValue("font-size", 48, 22);
 		line-height: math.div(59, 48);
 		color: #BE1522;
 		margin-bottom: 15px;
@@ -648,5 +667,141 @@
 		font-size: 18px;
 		text-align: center;
 		color: #000000;
+
+		@media (max-width:$mobile) {
+			font-size: 14px;
+			padding: 20px;
+			width: 100%;
+			text-align: center;
+			display: block;
+		}
+	}
+}
+
+// price ========================================================================================================================================================
+.price {
+	@include adaptiveValue("margin-top", 100, 40);
+	@include adaptiveValue("margin-bottom", 100, 40);
+	position: relative;
+	padding-bottom: 40px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: url(../img/price/price-bg.jpg) center center/cover no-repeat;
+		z-index: -1;
+	}
+
+	&__container {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 340px;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: url(../img/price/Image.png) no-repeat;
+			z-index: -1;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 340px;
+			height: 100%;
+			top: 0;
+			right: 0;
+			background: url(../img/price/Image-bg.png) no-repeat;
+			z-index: -1;
+
+			@media (max-width:$mobile) {
+				display: none;
+			}
+		}
+	}
+
+	&__title {
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 48, 30);
+		line-height: math.div(54, 48);
+		margin-bottom: 50px;
+		text-align: center;
+		color: $colorRed;
+	}
+
+	&__card {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 43px;
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 30px;
+
+		@media (max-width:$mobile) {
+			flex-wrap: wrap;
+			justify-content: center;
+			text-align: center;
+		}
+
+		p {
+			font-weight: 600;
+			@include adaptiveValue("font-size", 24, 18);
+			line-height: math.div(29, 24);
+			margin-right: 5px;
+
+			@media (max-width:$mobile) {
+				margin-right: 0;
+			}
+
+			span {
+				color: $colorRed;
+			}
+		}
+	}
+
+	&__btn {
+		display: block;
+		width: 300px;
+		margin: 0 auto;
+		border: 4px solid #BE1522;
+		border-radius: 20px;
+		padding: 30px 43px;
+		font-weight: 700;
+		font-size: 18px;
+		text-align: center;
+		color: #000000;
+	}
+}
+
+.card {
+	background: #FE8282;
+	border-radius: 20px;
+	padding: 25px;
+
+	@media (max-width:$tablet) {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&:not(:last-child) {
+		margin-right: 30px;
+
+		@media (max-width:$tablet) {
+			margin-right: 0;
+		}
 	}
 }
