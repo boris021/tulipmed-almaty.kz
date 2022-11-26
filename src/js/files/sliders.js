@@ -7,7 +7,10 @@
 // Підключаємо слайдер Swiper з node_modules
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, {
+	Navigation,
+	Autoplay
+} from 'swiper';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -19,7 +22,7 @@ EffectFade, Lazy, Manipulation
 // Базові стилі
 import "../../scss/base/swiper.scss";
 // Повний набір стилів з scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
+import "../../scss/libs/swiper.scss";
 // Повний набір стилів з node_modules
 // import 'swiper/css';
 
@@ -32,53 +35,47 @@ function initSliders() {
 		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			modules: [Navigation, Autoplay],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
+			slidesPerView: 4,
 			spaceBetween: 0,
 			autoHeight: true,
 			speed: 800,
+			loop: true,
 
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
 			//preloadImages: false,
 			//lazy: true,
 
-			/*
+
 			// Ефекти
 			effect: 'fade',
 			autoplay: {
 				delay: 3000,
 				disableOnInteraction: false,
 			},
-			*/
 
-			// Пагінація
-			/*
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			*/
 
-			// Скроллбар
-			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
+			// // Кнопки "вліво/вправо"
+			// navigation: {
+			// 	prevEl: '.swiper-button-prev',
+			// 	nextEl: '.swiper-button-next',
+			// },
 
-			// Кнопки "вліво/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
-			/*
 			// Брейкпоінти
 			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				425: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
 				640: {
 					slidesPerView: 1,
 					spaceBetween: 0,
@@ -97,11 +94,7 @@ function initSliders() {
 					spaceBetween: 30,
 				},
 			},
-			*/
-			// Події
-			on: {
 
-			}
 		});
 	}
 }

@@ -805,3 +805,195 @@
 		}
 	}
 }
+
+// canon ========================================================================================================================================================
+.canon {
+	@include adaptiveValue("margin-top", 100, 40);
+	@include adaptiveValue("margin-bottom", 100, 40);
+
+	&__container {
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		background: url(../img/canon/canon-bg.jpg) center center/cover no-repeat;
+		padding: 100px;
+
+		@media (max-width:$tablet) {
+			padding: 40px 20px;
+		}
+	}
+
+	&__title {
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 32, 22);
+		line-height: math.div(36, 32);
+		margin-bottom: 50px;
+		text-align: center;
+
+		span {
+			color: $colorRed;
+		}
+	}
+
+	&__row {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		column-gap: 50px;
+	}
+
+	&__card {
+		flex: 0 1 36%;
+		margin-bottom: 30px;
+
+		@media (max-width:$tablet) {
+			flex: 0 1 40%;
+		}
+
+		@media (max-width:$mobile) {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__card-number {
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 48, 36);
+		margin-bottom: 15px;
+		color: #BE1522;
+	}
+
+	&__card-title {
+		font-weight: 600;
+		@include adaptiveValue("font-size", 24, 20);
+		line-height: math.div(29, 24);
+		margin-bottom: 15px;
+	}
+
+	&__card-text {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(20, 16);
+	}
+}
+
+// review ========================================================================================================================================================
+.review {
+	position: relative;
+	@include adaptiveValue("margin-top", 100, 40);
+	@include adaptiveValue("margin-bottom", 100, 40);
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 190px;
+		left: 0;
+		background: url(../img/review/review-bg.jpg) center center/cover no-repeat;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0;
+		background: url(../img/review/review-after.png) left center no-repeat;
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__title {
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 48, 30);
+		line-height: math.div(54, 48);
+		margin-bottom: 50px;
+
+		span {
+			color: $colorRed;
+		}
+	}
+
+	&__row {}
+
+	&__slider {
+		text-align: center;
+	}
+
+	&__wrapper {}
+
+	&__slide {}
+}
+
+//========================================================================================================================================================
+.question {
+	position: relative;
+	@include adaptiveValue("margin-top", 200, 40);
+	@include adaptiveValue("margin-bottom", 100, 40);
+
+	&__container {}
+
+	&__title {
+		font-family: 'Comfortaa';
+		font-weight: 700;
+		@include adaptiveValue("font-size", 48, 30);
+		line-height: math.div(54, 48);
+		text-align: center;
+		margin-bottom: 24px;
+	}
+
+	&__subtitle {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: math.div(20, 16);
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	&__left {}
+
+	&__left-box {
+		width: 450px;
+		background: #FFFFFF;
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+		border-radius: 20px;
+		padding: 42px 36px;
+	}
+
+	&__right {}
+}
+
+.form {
+	&__title {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 29px;
+		text-align: center;
+		color: $colorRed;
+		margin-bottom: 20px;
+	}
+
+	&__group {}
+
+	&__input {}
+
+	&__btn {}
+}
+
+.input {}
+
+.button {}
