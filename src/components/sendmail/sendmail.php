@@ -21,41 +21,25 @@
 	$mail->Port       = 465;                 
 	*/
 
-	//Від кого лист
-	$mail->setFrom('from@gmail.com', 'Фрілансер по життю'); // Вказати потрібний E-mail
-	//Кому відправити
-	$mail->addAddress('to@gmail.com'); // Вказати потрібний E-mail
-	//Тема листа
-	$mail->Subject = 'Вітання! Це "Фрілансер по життю"';
+	$mail->setFrom('info_almaty@t-med.kz', 'Заявка с сайта'); 
+	$mail->addAddress('boris021@mail.ru'); 
+	$mail->Subject = 'Заявка с сайта"';
 
-	//Тіло листа
-	$body = '<h1>Зустрічайте супер листа!</h1>';
-
-	//if(trim(!empty($_POST['email']))){
-		//$body.=$_POST['email'];
-	//}	
-	
-	/*
-	//Прикріпити файл
-	if (!empty($_FILES['image']['tmp_name'])) {
-		//шлях завантаження файлу
-		$filePath = __DIR__ . "/files/sendmail/attachments/" . $_FILES['image']['name']; 
-		//грузимо файл
-		if (copy($_FILES['image']['tmp_name'], $filePath)){
-			$fileAttach = $filePath;
-			$body.='<p><strong>Фото у додатку</strong>';
-			$mail->addAttachment($fileAttach);
-		}
+	if(trim(!empty($_POST['name']))){
+		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
 	}
-	*/
+	if(trim(!empty($_POST['tel']))){
+		$body.='<p><strong>Телефон:</strong> '.$_POST['tel'].'</p>';
+	}
+	
 
 	$mail->Body = $body;
 
-	//Відправляємо
+	//Отправляем
 	if (!$mail->send()) {
-		$message = 'Помилка';
+		$message = 'Ошибка';
 	} else {
-		$message = 'Дані надіслані!';
+		$message = 'Данные отправлены!';
 	}
 
 	$response = ['message' => $message];
