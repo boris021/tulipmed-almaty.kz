@@ -35,7 +35,6 @@
 			display: none;
 		}
 	}
-
 }
 
 .header {
@@ -141,7 +140,6 @@
 	&__link {}
 }
 
-
 .heaader {
 	z-index: 2;
 
@@ -177,7 +175,30 @@
 .home {
 	z-index: 2;
 
-	&__container {}
+	&__container {
+		position: relative;
+	}
+
+	&__social {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
+	}
+
+	&__social-link {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
 
 	&__title {
 		max-width: 990px;
@@ -380,6 +401,8 @@
 		}
 	}
 }
+
+
 
 
 //====================================================================================================
@@ -936,8 +959,23 @@
 //========================================================================================================================================================
 .question {
 	position: relative;
-	@include adaptiveValue("margin-top", 200, 40);
+	@include adaptiveValue("margin-top", 250, 40);
 	@include adaptiveValue("margin-bottom", 100, 40);
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 717px;
+		height: 100%;
+		top: 0;
+		right: -350px;
+		background: url(../img/question/question-before.png) no-repeat;
+		z-index: -1;
+
+		@media (max-width:$tablet) {
+			display: none;
+		}
+	}
 
 	&__container {}
 
@@ -948,6 +986,11 @@
 		line-height: math.div(54, 48);
 		text-align: center;
 		margin-bottom: 24px;
+		color: $colorRed;
+
+		@media (max-width:$mobile) {
+			margin-top: 120px;
+		}
 	}
 
 	&__subtitle {
@@ -959,22 +1002,49 @@
 	}
 
 	&__row {
+		margin-top: 100px;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		flex-wrap: wrap;
+
+		@media (max-width:$mobile) {
+			margin-top: 50px;
+		}
 	}
 
-	&__left {}
+	&__left {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 316px;
+			height: 100%;
+			top: -60px;
+			right: -150px;
+			background: url(../img/question/question-after.png) no-repeat;
+			z-index: -1;
+		}
+
+		@media (max-width:$mobile) {
+			margin-bottom: 20px;
+		}
+	}
 
 	&__left-box {
-		width: 450px;
+		max-width: 450px;
 		background: #FFFFFF;
 		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
 		padding: 42px 36px;
 	}
 
-	&__right {}
+	&__right {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 .form {
@@ -987,13 +1057,31 @@
 		margin-bottom: 20px;
 	}
 
-	&__group {}
+	&__group {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		label {
+			display: block;
+			font-weight: 800;
+			font-size: 16px;
+			line-height: 20px;
+			margin-bottom: 8px;
+
+			span {
+				color: $colorRed
+			}
+		}
+	}
 
 	&__input {}
 
-	&__btn {}
+	&__btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+	}
 }
-
-.input {}
-
-.button {}

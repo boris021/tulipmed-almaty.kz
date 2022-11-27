@@ -17,12 +17,14 @@
 							<button type="button" class="menu__icon icon-menu"><span></span></button>
 							<nav class="menu__body">
 								<ul class="menu__list">
-									<li class="menu__item"><a href="" class="menu__link">Услуги</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Специалисты</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Цены</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Преимущества</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Отзывы</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
+									<li class="menu__item"><a data-goto=".program" href="#" class="menu__link">Услуги</a></li>
+									<li class="menu__item"><a data-goto=".doctor" href="#" class="menu__link">Специалисты</a>
+									</li>
+									<li class="menu__item"><a data-goto=".price" href="#" class="menu__link">Цены</a></li>
+									<li class="menu__item"><a data-goto=".canon" href="#" class="menu__link">Преимущества</a>
+									</li>
+									<li class="menu__item"><a data-goto=".review" href="#" class="menu__link">Отзывы</a></li>
+									<li class="menu__item"><a data-goto=".question" href="#" class="menu__link">Контакты</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -32,10 +34,21 @@
 				</header>
 				<div class="home">
 					<div class="home__container">
+						<div class="home__social">
+							<a href="https://api.whatsapp.com/send?phone=77010750808" class="home__social-link">
+								<img src="@img/icons/icon_whatsapp.svg" alt="">
+							</a>
+							<a href="https://www.instagram.com/tulip_med_almaty/" class="home__social-link">
+								<img src="@img/icons/icon_instagram.svg" alt="">
+							</a>
+							<a href="#" class="home__social-link">
+								<img src="@img/icons/icon_telegram.svg" alt="">
+							</a>
+						</div>
 						<h1 class="home__title">Эстетическая гинекология и <span>интимное омоложение</span></h1>
 						<div class="home__subtitle">Ваш шаг к абсолютной уверенности и красоте без боли, крови и реабилитации
 						</div>
-						<a href="" class="home__btn button">Записаться на прием</a>
+						<a href="#" data-popup="#popup" class="home__btn button">Записаться на прием</a>
 					</div>
 				</div>
 				<div class="advantage">
@@ -189,7 +202,7 @@
 							<div class="sale__right-title">При прохождении программы интимного омоложения на аппарате</div>
 							<div class="sale__right-subtitle">Индивидуальные тренировки на интимные мышцы тазового дна</div>
 							<div class="sale__right-text">по выгодной цене!</div>
-							<a href="#" class="sale__right-btn button">Записаться на прием</a>
+							<a href="#" data-popup="#popup" class="sale__right-btn button">Записаться на прием</a>
 						</div>
 					</div>
 				</div>
@@ -219,7 +232,7 @@
 						<p>Для Вашего удобства, у нас в клинике действует <span>рассрочка на наши услуги от</span> </p>
 						<img src="@img/price/fortebank.png" alt="">
 					</div>
-					<a href="#" class="price__btn button">Узнать подробнее</a>
+					<a href="#" data-popup="#popup" class="price__btn button">Узнать подробнее</a>
 				</div>
 			</section>
 
@@ -296,14 +309,17 @@
 						<div class="question__left">
 							<div class="question__left-box">
 								<div class="form__title">Получите детальную консультацию специалиста</div>
-								<form data-dev action="sendmail.php" method="post" class="form">
+								<form data-ajax data-popup-message="#form-message" action="sendmail.php" method="post"
+									class="form">
 									<div class="form__group">
 										<label for="name">Введите ваше имя <span>*</span></label>
-										<input type="text" class="form__input input" placeholder="Асель">
+										<input data-required data-error="Введите имя" type="text" class="form__input input"
+											placeholder="Асель">
 									</div>
 									<div class="form__group">
 										<label for="tel">Введите ваш телефон <span>*</span></label>
-										<input type="tel" class="form__input input" placeholder="+7 (___) ___ ____">
+										<input data-validate data-required data-error="Введите номер телефона" type="tel"
+											class="form__input input tel" placeholder="+7 (___) ___ ____">
 									</div>
 									<button type="submit" class="form__btn button">Записаться</button>
 								</form>
@@ -318,6 +334,7 @@
 
 		</main>
 		@@include('html/_footer.htm',{})
+		@@include('html/_popup.htm',{})
 	</div>
 	@@include('html/_js.htm',{})
 </body>

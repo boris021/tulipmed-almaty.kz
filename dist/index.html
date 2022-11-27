@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20221126200055">
+	<link rel="stylesheet" href="css/style.min.css?_v=20221127131444">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +28,14 @@
 							<button type="button" class="menu__icon icon-menu"><span></span></button>
 							<nav class="menu__body">
 								<ul class="menu__list">
-									<li class="menu__item"><a href="" class="menu__link">Услуги</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Специалисты</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Цены</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Преимущества</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Отзывы</a></li>
-									<li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
+									<li class="menu__item"><a data-goto=".program" href="#" class="menu__link">Услуги</a></li>
+									<li class="menu__item"><a data-goto=".doctor" href="#" class="menu__link">Специалисты</a>
+									</li>
+									<li class="menu__item"><a data-goto=".price" href="#" class="menu__link">Цены</a></li>
+									<li class="menu__item"><a data-goto=".canon" href="#" class="menu__link">Преимущества</a>
+									</li>
+									<li class="menu__item"><a data-goto=".review" href="#" class="menu__link">Отзывы</a></li>
+									<li class="menu__item"><a data-goto=".question" href="#" class="menu__link">Контакты</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -43,10 +45,21 @@
 				</header>
 				<div class="home">
 					<div class="home__container">
+						<div class="home__social">
+							<a href="https://api.whatsapp.com/send?phone=77010750808" class="home__social-link">
+								<img src="img/icons/icon_whatsapp.svg" alt="">
+							</a>
+							<a href="https://www.instagram.com/tulip_med_almaty/" class="home__social-link">
+								<img src="img/icons/icon_instagram.svg" alt="">
+							</a>
+							<a href="#" class="home__social-link">
+								<img src="img/icons/icon_telegram.svg" alt="">
+							</a>
+						</div>
 						<h1 class="home__title">Эстетическая гинекология и <span>интимное омоложение</span></h1>
 						<div class="home__subtitle">Ваш шаг к абсолютной уверенности и красоте без боли, крови и реабилитации
 						</div>
-						<a href="" class="home__btn button">Записаться на прием</a>
+						<a href="#" data-popup="#popup" class="home__btn button">Записаться на прием</a>
 					</div>
 				</div>
 				<div class="advantage">
@@ -200,7 +213,7 @@
 							<div class="sale__right-title">При прохождении программы интимного омоложения на аппарате</div>
 							<div class="sale__right-subtitle">Индивидуальные тренировки на интимные мышцы тазового дна</div>
 							<div class="sale__right-text">по выгодной цене!</div>
-							<a href="#" class="sale__right-btn button">Записаться на прием</a>
+							<a href="#" data-popup="#popup" class="sale__right-btn button">Записаться на прием</a>
 						</div>
 					</div>
 				</div>
@@ -230,7 +243,7 @@
 						<p>Для Вашего удобства, у нас в клинике действует <span>рассрочка на наши услуги от</span> </p>
 						<img src="img/price/fortebank.png" alt="">
 					</div>
-					<a href="#" class="price__btn button">Узнать подробнее</a>
+					<a href="#" data-popup="#popup" class="price__btn button">Узнать подробнее</a>
 				</div>
 			</section>
 
@@ -307,14 +320,14 @@
 						<div class="question__left">
 							<div class="question__left-box">
 								<div class="form__title">Получите детальную консультацию специалиста</div>
-								<form data-dev action="sendmail.php" method="post" class="form">
+								<form data-ajax data-popup-message="#form-message" action="sendmail.php" method="post" class="form">
 									<div class="form__group">
 										<label for="name">Введите ваше имя <span>*</span></label>
-										<input type="text" class="form__input input" placeholder="Асель">
+										<input data-required data-error="Введите имя" type="text" class="form__input input" placeholder="Асель">
 									</div>
 									<div class="form__group">
 										<label for="tel">Введите ваш телефон <span>*</span></label>
-										<input type="tel" class="form__input input" placeholder="+7 (___) ___ ____">
+										<input data-validate data-required data-error="Введите номер телефона" type="tel" class="form__input input tel" placeholder="+7 (___) ___ ____">
 									</div>
 									<button type="submit" class="form__btn button">Записаться</button>
 								</form>
@@ -328,12 +341,170 @@
 			</section>
 
 		</main>
-		<footer class="footer">
-			<div class="footer__container">
+		<footer class="footertop">
+			<div class="footertop__container">
+				<div class="footertop__subtitle">Мы находимся в центре города</div>
+				<div class="footertop__title">Мы всегда рады видеть Вас в нашей клинике</div>
+			</div>
+			<div class="footertop__map">
+				<div class="maps">
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A650e6d5c6d3688968fb878245ddbb2a5fe831ab7a3f136563a5f01e5e11913f1&amp;width=100%25&amp;height=430&amp;lang=ru_RU&amp;scroll=true&_v=20221127131444">
+					</script>
+				</div>
+				<div class="footertop__container">
+					<div class="footertop__content">
+						<div class="footertop__left">
+							<div class="footertop__left-box">
+								<div class="box__adress">Республика Казахстан, г. Алматы, ​проспект Достык, 36</div>
+								<div class="box__social">
+									<div class="box__social-item">
+										<img src="img/icons/phone.svg" class="box__social-item-whatsapp">
+										<a href="tel:+77010750808" class="box__social-link">+7 (701) 075 08 08</a>
+									</div>
+									<div class="box__social-item">
+										<img src="img/icons/mail.svg" class="box__social-item-mail">
+										<a href="mailto:Info_almaty@t-med.kz" class="box__social-link">info_almaty@t-med.kz</a>
+									</div>
+								</div>
+								<div class="box__items">
+									<div class="box__social-itemc">
+										<a href="https://api.whatsapp.com/send?phone=77010750808" class="box__social-link">
+											<img src="img/icons/icon_whatsapp.svg" class="box__social-item-img">
+										</a>
+									</div>
+									<div class="box__social-itemc">
+										<a href="https://www.instagram.com/tulip_med_almaty/" class="box__social-link">
+											<img src="img/icons/icon_instagram.svg" class="box__social-item-img">
+										</a>
+									</div>
+									<div class="box__social-itemc">
+										<a href="#" class="box__social-link">
+											<img src="img/icons/icon_telegram.svg" class="box__social-item-img">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="footer__right"></div>
+					</div>
+				</div>
 			</div>
 		</footer>
+		<div class="footer__bottom">
+			<div class="footer__container">
+				<span> © 2022 tulipmed-almaty.kz </span>
+				<span>
+					<a href="https://wr-landing.kz" target="_blank">Разработка сайта: wr-landing.kz </a>
+				</span>
+			</div>
+		</div>
+
+		<div type="button" class="callback-bt">
+			<a href="https://api.whatsapp.com/send?phone=77010750808" target="_blank" rel="nofollow">
+				<div class="text-call">
+					<img src="img/icons/icon_whatsapp.svg">
+				</div>
+			</a>
+		</div>
+		<!-- Спасибо -->
+		<div id="form-message" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content popup__content-close">
+					<div class="popupclose__text">
+						<div class="popupclose__text-close">Спасибо за вашу заявку!</div>
+						<div class="popupclose__text-subtitleclose">В ближайшее время с вами свяжется администратор клиники, который
+							проконсультирует вас по всем вопросам</div>
+					</div>
+					<button data-close type="button" class="popup__close-btn">Ок</button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="popup" aria-hidden="true" class="popup">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="popup__text">
+						<div class="popup__img">
+							<img src="img/popup-bg.png" alt="popup">
+						</div>
+						<div class="popup__contentcard">
+							<button data-close type="button" class="popup__close">X</button>
+							<div class="popup__content-title">Получите детальную консультацию специалиста</div>
+							<div class="popup__content-text">Оставьте заявку и в ближайшее время с вами свяжется администратор
+								клиники, который проконсультирует вас по всем интересующим вопросам</div>
+							<form data-ajax data-popup-message="#form-message" action="sendmail.php" method="post" class="popup__content-form">
+								<input type="hidden" name="hidden" value="Получите детальную консультацию специалиста">
+								<div class="popup__content-group">
+									<label for="name">Введите ваше имя <span>*</span></label>
+									<div class="input__group">
+										<input data-required data-error="Введите имя" type="text" name="name" id="" placeholder="Асель" class="input popup__content-group-input">
+										<span class="input__group-icon _icon-user"></span>
+									</div>
+
+								</div>
+								<div class="popup__content-group">
+									<label for="tel">Введите ваш телефон <span>*</span></label>
+									<div class="input__group">
+										<input data-required data-error="Введите номер телефона" type="tel" name="tel" id="tel" placeholder="+7 (___) ___ ____" class="input popup__content-group-input tel">
+										<span class="input__group-icon _icon-phone"></span>
+									</div>
+								</div>
+								<button type="submit" class="button form-btn">Отправить заявку</button>
+								<span class="form-sutitle">
+									Нажимая на кнопку вы соглашаетесь на обработку персональных данных, согласно политике
+									конфиденциальности
+								</span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	<script src="js/app.min.js?_v=20221126200055"></script>
+	<script src="js/app.min.js?_v=20221127131444"></script>
+
+	<script>
+		window.addEventListener("DOMContentLoaded", function() {
+			[].forEach.call(document.querySelectorAll('.tel'), function(input) {
+				var keyCode;
+
+				function mask(event) {
+					event.keyCode && (keyCode = event.keyCode);
+					var pos = this.selectionStart;
+					if (pos < 3) event.preventDefault();
+					var matrix = "+7 (___) ___ ____",
+						i = 0,
+						def = matrix.replace(/\D/g, ""),
+						val = this.value.replace(/\D/g, ""),
+						new_value = matrix.replace(/[_\d]/g, function(a) {
+							return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+						});
+					i = new_value.indexOf("_");
+					if (i != -1) {
+						i < 5 && (i = 3);
+						new_value = new_value.slice(0, i)
+					}
+					var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+						function(a) {
+							return "\\d{1," + a.length + "}"
+						}).replace(/[+()]/g, "\\$&");
+					reg = new RegExp("^" + reg + "$");
+					if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value =
+						new_value;
+					if (event.type == "blur" && this.value.length < 5) this.value = ""
+				}
+
+				input.addEventListener("input", mask, false);
+				input.addEventListener("focus", mask, false);
+				input.addEventListener("blur", mask, false);
+				input.addEventListener("keydown", mask, false)
+
+			});
+
+		});
+	</script>
 </body>
 
 </html>
